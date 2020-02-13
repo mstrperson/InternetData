@@ -43,8 +43,6 @@ namespace InternetData
         [DataMember]
         public Contact contact;
 
-        [DataMember(Name ="class-list")]
-        public List<string> classes;
 
         #endregion // Properties
 
@@ -71,9 +69,9 @@ namespace InternetData
         public string ListClasses()
         {
             string output = "";
-            if (classes != null)
+            if (contact.classes != null)
             {
-                foreach (string cl in classes)
+                foreach (string cl in contact.classes)
                 {
                     output = string.Format("{0}\n{1}", output, cl);
                 }
@@ -127,6 +125,8 @@ namespace InternetData
         [DataMember]
         public Room office;
 
+        [DataMember]
+        public List<string> classes;
         /// <summary>
         /// Text output format.
         /// </summary>
