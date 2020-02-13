@@ -80,6 +80,10 @@ namespace InternetData
         [DataMember]
         public string timezone;
 
+        /// <summary>
+        /// This ForecastData does not necessarily contain all possible properties
+        /// some properties may be empty or "null" but that's ok~
+        /// </summary>
         [DataMember]
         public ForecastData currently;
 
