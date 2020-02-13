@@ -45,6 +45,10 @@ namespace InternetData
 
     }
 
+    /// <summary>
+    /// The WeatherForcast class is modelled after the root object returned by
+    /// the DarkSky api.
+    /// </summary>
     [DataContract]
     public class WeatherForcast
     {
@@ -73,6 +77,11 @@ namespace InternetData
         public List<WeatherAlert> alerts;
 
 
+        /// <summary>
+        /// Quick override for the ToString() method.  Prints the current forecast
+        /// date and time, summary, and daily high/low temperatures.
+        /// </summary>
+        /// <returns></returns>
         public override string ToString()
         {
             return string.Format("{0} {1} - {2}\nHigh:  {3}F ({4})\nLow:  {5}F ({6})",
@@ -82,6 +91,9 @@ namespace InternetData
         }
     }
 
+    /// <summary>
+    /// Alerts returned by the weather api have this form.
+    /// </summary>
     [DataContract]
     public class WeatherAlert
     {
@@ -106,6 +118,13 @@ namespace InternetData
         [DataMember]
         public string uri;
 
+
+        /// <summary>
+        /// This converts the Epcoh Time returned by the API into a DateTime object
+        /// in US/Eastern (GMT-5) timezone.
+        ///
+        /// These are decorated with [IgnoreDataMember] because they are /not/ part of the API.
+        /// </summary>
         [IgnoreDataMember]
         public DateTime Time => DateTimeOffset.FromUnixTimeSeconds(time).UtcDateTime.AddHours(-5);
 
@@ -113,6 +132,10 @@ namespace InternetData
         public DateTime Expires => DateTimeOffset.FromUnixTimeSeconds(expires).UtcDateTime.AddHours(-5);
     }
 
+    /// <summary>
+    /// a ForcastCollection is used in the API as the minutely, hourly and daily
+    /// fields consist of a collection of ForcastData objects with a general summary.
+    /// </summary>
     [DataContract]
     public class ForecastCollection
     {
@@ -126,6 +149,11 @@ namespace InternetData
         public List<ForecastData> data;
     }
 
+    /// <summary>
+    /// This is an extraordinary object which may contain many or only a few of the
+    /// listed properties.  Note, that "time" is listed as Required because all
+    /// ForecastData objects will contain a timestamp.
+    /// </summary>
     [DataContract]
     public class ForecastData
     {

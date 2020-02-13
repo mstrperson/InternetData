@@ -88,7 +88,7 @@ namespace InternetData
         {
             // Prepare to read the Example.json
             // FileStream is the object that we use to acomplish this task
-            FileStream file = new FileStream("/Users/jcox/Desktop/Example.json", FileMode.Open);
+            FileStream file = new FileStream("/Users/jcox/Desktop/Example.txt", FileMode.Open);
 
             // In order to read the JSON we need to use a JSON Serializer object.
             // Generally, serializers are used to convert an object from computer
@@ -127,6 +127,7 @@ namespace InternetData
 
         [DataMember]
         public List<string> classes;
+
         /// <summary>
         /// Text output format.
         /// </summary>

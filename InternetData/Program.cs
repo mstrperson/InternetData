@@ -57,11 +57,11 @@ namespace InternetData
         public static void Main(string[] args)
         {
 
-            //Example example = Example.LoadExample();
+            Example example = Example.LoadExample();
 
-            //Console.WriteLine(example);
+            Console.WriteLine(example);
 
-            GetRonSwansonQuotes();
+            //GetRonSwansonQuotes();
 
             //WeatherForcast forcast = Weather.GetWeatherForcast();
 
