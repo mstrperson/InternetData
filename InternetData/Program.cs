@@ -24,6 +24,7 @@ namespace InternetData
             // The result, is a Response message which contains the data you requested.
             HttpResponseMessage response = client.SendAsync(request).Result;
 
+
             // Since the data is in JSON format, we use a DataContractJsonSerializer to pull the data out of that object.
             // the JsonSerializer takes a DataType as its input.  in this case, we expect the response to be a List of Strings.
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(List<string>));
@@ -60,11 +61,11 @@ namespace InternetData
 
             //Console.WriteLine(example);
 
-            //GetRonSwansonQuotes();
+            GetRonSwansonQuotes();
 
-            WeatherForcast forcast = Weather.GetWeatherForcast();
+            //WeatherForcast forcast = Weather.GetWeatherForcast();
 
-            Console.WriteLine(forcast);
+            //Console.WriteLine(forcast);
 
             Console.WriteLine("\nDone!");
         }
