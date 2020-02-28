@@ -226,9 +226,6 @@ namespace InternetData
         public double cloudCover;
 
         [DataMember]
-        public double uvIndex;
-
-        [DataMember]
         public double visibility;
 
         [DataMember]
